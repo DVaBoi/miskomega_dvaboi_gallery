@@ -1,61 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Stormrider Links</title>
-<link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DVaBoi Simple Site</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-<header>
-  <div class="logo">Stormrider</div>
-  <nav>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li class="dropdown">
-        <button id="adult-btn">🔞 Adults Only ▼</button>
-        <ul id="adult-menu" class="dropdown-menu hidden">
-          <li><a href="adult.html">Exclusive Gallery</a></li>
-          <li><a href="adult.html#behind-scenes">Behind the Scenes</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <button id="games-btn">🎮 Games ▼</button>
-        <ul id="games-menu" class="dropdown-menu hidden">
-          <li><a href="games.html#game1">Puzzle Quest</a></li>
-          <li><a href="games.html#game2">Stormrider Dash</a></li>
-        </ul>
-      </li>
-      <li><a href="https://github.com/dvaboi" target="_blank">GitHub</a></li>
-      <li><a href="https://kick.com/dvaboi" target="_blank">Live Stream</a></li>
-    </ul>
-  </nav>
-</header>
-
-<main>
-  <section class="profile">
-    <img src="assets/avatar.png" alt="Stormrider Avatar" />
-    <h1>Stormrider</h1>
+  <div class="profile">
+    <img class="avatar" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAACMCAIAAAD+Ue6YAAAAGXRFWHRTb2Z0d2FyZQBwYWludC5uZXQgNC4wLjEyQNk6mgAAAItJREFUeJzt3TEBAAAAwqD1T20ND6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDm2AAAXLgrQUAAAAASUVORK5CYII=" alt="Avatar" />
+    <h1>DVaBoi</h1>
     <p>Game dev, streamer, coder, creator ⚡</p>
-  </section>
+  </div>
 
-  <section class="links">
-    <a href="https://github.com/dvaboi" target="_blank" class="link-button">💻 GitHub Projects</a>
-    <a href="https://www.youtube.com/@FollowDVaBoi" target="_blank" class="link-button">📺 YouTube Channel</a>
-    <a href="https://www.fortnite.com/@miskomega" target="_blank" class="link-button">🎮 Fortnite Content</a>
-    <a href="https://kick.com/dvaboi" target="_blank" class="link-button">🎥 Live Stream</a>
-    <a href="https://www.paypal.com/paypalme/dvaboi" target="_blank" class="link-button">💸 Support / Dev Logs</a>
-  </section>
-</main>
+  <div class="links">
+    <a class="link-button" href="https://github.com/dvaboi" target="_blank" rel="noopener noreferrer">💻 GitHub Projects</a>
+    <a class="link-button" href="https://www.youtube.com/@FollowDVaBoi" target="_blank" rel="noopener noreferrer">📺 YouTube Channel</a>
+    <a class="link-button" href="https://kick.com/dvaboi" target="_blank" rel="noopener noreferrer">🎥 Live Stream</a>
+    <a class="link-button" href="#" id="adultToggle">🔞 Adults Only</a>
+  </div>
 
-<footer>
-  <p>⚡️ Built with ❤️ by <strong>DVaBoi</strong> | 💀 Powered by <a href="https://miskomega.com" target="_blank">MiskOmega</a></p>
-  <p>📬 Contact: <a href="mailto:contact@miskomega.com">contact@miskomega.com</a></p>
-  <p style="font-size: 0.8rem; color: #666;">© 2025 MiskOmega Productions. All rights reserved.</p>
-</footer>
+  <div id="adult-links" style="display:none;">
+    <a class="link-button" href="https://example.com/adult1" target="_blank" rel="noopener noreferrer">🔥 Exclusive Gallery</a>
+    <a class="link-button" href="https://example.com/adult2" target="_blank" rel="noopener noreferrer">👀 Behind the Scenes</a>
+  </div>
 
-<script src="js/main.js"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>
