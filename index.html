@@ -2,113 +2,160 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Stormrider Links</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MiskOmega Gallery</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #0f0f0f, #1f1f1f);
-      color: white;
+      background: #121212;
+      color: #eee;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
       padding: 2rem;
+      border-bottom: 1px solid #444;
     }
-    .profile {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    .profile h1 {
-      margin: 0.5rem 0 0 0;
-    }
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      width: 100%;
-      max-width: 400px;
-    }
-    .link-button {
-      background: #111;
-      border: 2px solid #00ccff;
-      padding: 1rem;
-      border-radius: 10px;
-      text-align: center;
-      text-decoration: none;
-      color: white;
-      font-size: 1.1rem;
-      font-weight: bold;
-      transition: all 0.25s ease;
-      box-shadow: 0 0 6px #00ccff20;
-    }
-    .link-button:hover {
-      background: #00ccff;
-      color: black;
-      transform: scale(1.05);
-      box-shadow: 0 0 12px #00ccff80;
-    }
-    .footer {
-      margin-top: 3rem;
-      padding: 1.5rem;
-      text-align: center;
-      color: #aaa;
-      font-size: 0.95rem;
-      border-top: 1px solid #333;
-    }
-    .footer a {
+    header h1 {
+      font-size: 2.2rem;
+      margin: 0;
       color: #00ccff;
-      text-decoration: none;
     }
-    .footer a:hover {
-      color: #ffffff;
-      text-decoration: underline;
+    main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .thumb {
+      background: #222;
+      border: 1px solid #333;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s;
+      aspect-ratio: 2/1;
+    }
+    .thumb:hover {
+      transform: scale(1.03);
+    }
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Viewer */
+    #viewer {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.95);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 9999;
+    }
+    #viewer img {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 6px;
+      box-shadow: 0 0 20px #000;
+    }
+    .viewer-controls {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+    }
+    .viewer-controls button {
+      background: #00ccff;
+      border: none;
+      color: #121212;
+      padding: 0.5rem 1rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .viewer-controls button:hover {
+      background: #00aacc;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.85rem;
+      color: #555;
+      border-top: 1px solid #444;
     }
   </style>
 </head>
 <body>
 
-  <div class="profile">
-    <h1>Stormrider</h1>
-    <p>Game dev, streamer, coder, creator ⚡</p>
-  </div>
+<header>
+  <h1>MiskOmega Cube Gallery</h1>
+</header>
 
-  <div id="links" class="links">
-    <!-- Links will be loaded here dynamically -->
+<main id="gallery">
+  <!-- Replace with your CubeUpload image links -->
+  <div class="thumb" data-full="https://u.cubeupload.com/DVaBoi/ffbCrashoutsGirlDiva01.png">
+    <img src="https://u.cubeupload.com/DVaBoi/ffbCrashoutsGirlDiva01.png" alt="Thumbnail 1" />
   </div>
-
-  <div class="footer">
-    <p>
-      ⚡️ Built with ❤️ by <strong>DVaBoi</strong> | 💀 Powered by 
-      <a href="https://miskomega.com" target="_blank"><strong>MiskOmega</strong></a>
-    </p>
-    <p>
-      📬 Contact: <a href="mailto:contact@miskomega.com">contact@miskomega.com</a>
-    </p>
-    <p style="font-size: 0.8rem; color: #666;">© 2025 MiskOmega Productions. All rights reserved.</p>
+  <div class="thumb" data-full="https://u.cubeupload.com/DVaBoi/424DivaTop02.png">
+    <img src="https://u.cubeupload.com/DVaBoi/424DivaTop02.png" alt="Thumbnail 2" />
   </div>
+  <div class="thumb" data-full="https://u.cubeupload.com/DVaBoi/CrashoutsGirl02.png">
+    <img src="https://u.cubeupload.com/DVaBoi/CrashoutsGirl02.png" alt="Thumbnail 3" />
+  </div>
+</main>
 
-  <script>
-    // Fetch links.json and build the link buttons
-    fetch('links.json')
-      .then(response => response.json())
-      .then(links => {
-        const container = document.getElementById('links');
-        links.forEach(link => {
-          const a = document.createElement('a');
-          a.href = link.url;
-          a.target = "_blank";
-          a.className = 'link-button';
-          a.textContent = `${link.emoji} ${link.name}`;
-          container.appendChild(a);
-        });
-      })
-      .catch(err => {
-        console.error('Failed to load links:', err);
-        const container = document.getElementById('links');
-        container.textContent = 'Failed to load links.';
-      });
-  </script>
+<div id="viewer">
+  <img id="viewer-img" src="" alt="Full Image" />
+  <div class="viewer-controls">
+    <button id="prev">⬅️ Prev</button>
+    <button id="close">✖ Close</button>
+    <button id="next">➡️ Next</button>
+  </div>
+</div>
+
+<footer>
+  © MiskOmega DVaBoi. All rights reserved.
+</footer>
+
+<script>
+  const thumbs = Array.from(document.querySelectorAll('.thumb'));
+  const viewer = document.getElementById('viewer');
+  const viewerImg = document.getElementById('viewer-img');
+  let currentIndex = -1;
+
+  function openViewer(index) {
+    currentIndex = index;
+    viewerImg.src = thumbs[index].dataset.full;
+    viewer.style.display = 'flex';
+  }
+
+  thumbs.forEach((thumb, index) => {
+    thumb.addEventListener('click', () => openViewer(index));
+  });
+
+  document.getElementById('close').onclick = () => {
+    viewer.style.display = 'none';
+    viewerImg.src = '';
+  };
+
+  document.getElementById('prev').onclick = () => {
+    if (currentIndex > 0) openViewer(currentIndex - 1);
+  };
+
+  document.getElementById('next').onclick = () => {
+    if (currentIndex < thumbs.length - 1) openViewer(currentIndex + 1);
+  };
+</script>
 
 </body>
 </html>
