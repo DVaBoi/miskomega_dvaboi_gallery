@@ -1,2 +1,1 @@
-# miskomega_website_001
-MiskOmega.com custom website 01
+MiskOmega.com dvaboi nsfw links
