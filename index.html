@@ -1,177 +1,316 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DVaBoi ADULT ONLY Links</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #121212;
-      color: #eee;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    header {
-      text-align: center;
-      padding: 1.5rem;
-      border-bottom: 1px solid #444;
-    }
-    header h1 {
-      margin: 0;
-      font-weight: 700;
-      font-size: 2.5rem;
-      color: #ff3399;
-    }
-    header p {
-      margin: 0.5rem 0 0;
-      font-size: 1rem;
-      color: #aaa;
-    }
-    main {
-      flex: 1;
-      padding: 2rem;
-      max-width: 500px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    a.link-button {
-      display: block;
-      padding: 1rem;
-      background: #222;
-      color: #ff3399;
-      text-align: center;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: background 0.3s ease;
-      cursor: pointer;
-    }
-    a.link-button:hover {
-      background: #ff3399;
-      color: #121212;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem 0;
-      font-size: 0.9rem;
-      color: #888;
-      background-color: #111;
-      border-top: 1px solid #444;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiskOmega | DVaBoi</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* CORE SYSTEM */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg: #050505;
+            --surface: #0f0f0f;
+            --border: #1e1e1e;
+            --border-active: #404040;
+            --text-main: #ffffff;
+            --text-dim: #808080;
+            --terminal-green: #00ff41;
+            --misk-blue: #3b82f6;
+            --dva-pink: #ff007a;
+            --media-gray: #a3a3a3;
+            --indy-green: #22c55e;
+            --scanline-color: rgba(0, 255, 65, 0.03);
+        }
 
-    /* Age Verification Overlay */
-    #age-verification {
-      position: fixed;
-      inset: 0;
-      background: rgba(18,18,18,0.95);
-      display: none;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: #eee;
-      padding: 2rem;
-      z-index: 9999;
-      text-align: center;
-    }
-    #age-verification h2 {
-      margin: 0 0 1rem;
-      font-weight: 700;
-      font-size: 2rem;
-      color: #ff3399;
-    }
-    #age-verification p {
-      margin: 0 0 2rem;
-      font-size: 1.1rem;
-      line-height: 1.4;
-    }
-    #age-verification button {
-      padding: 0.8rem 2rem;
-      margin: 0 1rem;
-      font-size: 1rem;
-      border: none;
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    #age-yes {
-      background: #ff3399;
-      color: #121212;
-    }
-    #age-yes:hover {
-      background: #cc0077;
-    }
-    #age-no {
-      background: #444;
-      color: #eee;
-    }
-    #age-no:hover {
-      background: #666;
-    }
-  </style>
+        body { 
+            background: var(--bg); 
+            color: var(--text-main); 
+            font-family: 'JetBrains Mono', monospace;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* CRT SCANLINE EFFECT */
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(var(--scanline-color) 50%, rgba(0, 0, 0, 0) 50%);
+            background-size: 100% 4px;
+            z-index: 100;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        /* HEADER */
+        .header-area {
+            padding: 100px 5vw 40px 5vw;
+            max-width: 1400px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .system-status {
+            font-size: 0.7rem;
+            color: var(--terminal-green);
+            margin-top: 10px;
+            display: flex;
+            align-items: center; 
+            gap: 12px;
+        }
+
+        .status-link {
+            color: var(--terminal-green);
+            text-decoration: none;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        .status-link:hover {
+            color: #fff;
+            text-shadow: 0 0 10px var(--terminal-green);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 0 5vw 60px 5vw;
+            max-width: 1400px;
+            width: 100%;
+        }
+
+        .line-divider {
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 25px;
+            width: 100%;
+            position: relative;
+        }
+
+        .line-divider::after {
+            content: attr(data-id);
+            position: absolute;
+            right: 0;
+            top: -15px;
+            font-size: 10px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+        }
+
+        /* THE GRID */
+        .directory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            margin-bottom: 20px;
+        }
+
+        .data-cell {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-decoration: none;
+            background: var(--bg);
+            padding: 30px;
+            aspect-ratio: 1 / 1; 
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .cell-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            filter: grayscale(1) contrast(1.2);
+            transition: transform 0.6s ease, opacity 0.4s ease;
+            z-index: 0;
+        }
+
+        .data-cell:hover .cell-bg {
+            opacity: 0.35;
+            transform: scale(1.1);
+            filter: grayscale(0) contrast(1);
+        }
+
+        .data-cell span, .data-cell div {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* HOVER HIGHLIGHT LOGIC */
+        .misk-grid .data-cell:hover { background: rgba(59, 130, 246, 0.1); }
+        .dva-grid .data-cell:hover { background: rgba(255, 0, 122, 0.1); }
+        .media-grid .data-cell:hover { background: rgba(163, 163, 163, 0.1); }
+        .indy-grid .data-cell:hover { background: rgba(34, 197, 94, 0.1); }
+        .extra-grid .data-cell:hover { background: rgba(163, 163, 163, 0.1); }
+
+        .data-cell::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 2px;
+            transform: scaleX(0);
+            transition: 0.3s;
+            z-index: 2;
+        }
+
+        .misk-grid .data-cell::before { background: var(--misk-blue); }
+        .dva-grid .data-cell::before { background: var(--dva-pink); }
+        .media-grid .data-cell::before { background: var(--media-gray); }
+        .indy-grid .data-cell::before { background: var(--indy-green); }
+        .extra-grid .data-cell::before { background: var(--media-gray); }
+
+        .data-cell:hover::before { transform: scaleX(1); }
+
+        .cell-index { font-size: 0.6rem; color: var(--text-dim); margin-bottom: auto; }
+        .cell-title { 
+            display: block; font-size: 1.1rem; font-weight: 700; color: #fff; 
+            margin-bottom: 8px; text-transform: uppercase; 
+        }
+        .cell-desc { display: block; font-size: 0.7rem; color: var(--text-dim); line-height: 1.4; }
+
+        /* NSFW MODAL */
+        #nsfw-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-box {
+            background: var(--surface);
+            border: 1px solid var(--dva-pink);
+            padding: 40px;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(255, 0, 122, 0.2);
+        }
+
+        .modal-title {
+            color: var(--dva-pink);
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .modal-btns {
+            margin-top: 30px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn {
+            background: none;
+            border: 1px solid var(--border-active);
+            color: var(--text-main);
+            padding: 10px 30px;
+            font-family: 'JetBrains Mono', monospace;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-yes:hover { background: var(--dva-pink); border-color: var(--dva-pink); color: #fff; }
+        .btn-no:hover { background: var(--border-active); }
+
+        /* FOOTER */
+        footer { margin-top: auto; padding: 80px 5vw; border-top: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; gap: 20px; }
+
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
 </head>
 <body>
 
-<header>
-  <h1>DVaBoi 18+</h1>
-  <p>🔞 ADULT ONLY All content below is strictly for adults</p>
-</header>
+    <header class="header-area">
+        <h1>DVaBoi NSFW Links</h1>
+        <div class="system-status">
+            <div style="width: 8px; height: 8px; background: var(--terminal-green); border-radius: 50%; animation: pulse 1.5s infinite; flex-shrink: 0;"></div>
+            <a href="https://kick.com/dvaboi" class="status-link" target="_blank">Live on Kick</a>
+        </div>
+    </header>
 
-<main>
-  <a href="#" class="link-button adult-link" data-adult-url="https://onlyfans.com/dvaboi">💙 OnlyFans</a>
-  <a href="#" class="link-button adult-link" data-adult-url="https://onlyfans.com/dvaboifree">🆓 Free OnlyFans</a>
-  <a href="#" class="link-button adult-link" data-adult-url="https://www.pornhub.com/model/dvaboi">🟨 PornHub</a>
-  <a href="#" class="link-button adult-link" data-adult-url="https://www.redgifs.com/users/dvaboi">⬛️ RedGIFs</a>
-  <a href="#" class="link-button adult-link" data-adult-url="https://www.reddit.com/user/xdvaboi/">🟧 Reddit</a>
-</main>
+    <div id="nsfw-modal">
+        <div class="modal-box">
+            <div class="modal-title">!! WARNING: ADULT ONLY !!</div>
+            <p style="font-size: 0.8rem; color: var(--text-dim);">The link you are about to access contains NSFW content. Are you 18+?</p>
+            <div class="modal-btns">
+                <button class="btn btn-yes" onclick="confirmNSFW()">YES</button>
+                <button class="btn btn-no" onclick="closeModal()">NO</button>
+            </div>
+        </div>
+    </div>
 
-<footer>
-  © 2025 — MiskOmega // DVaBoi — All rights reserved.
-</footer>
+    <section>
+        <div class="line-divider" data-id="DVABOI"></div>
+        <div class="directory-grid dva-grid">
+            <a href="https://onlyfans.com/dvaboi" class="data-cell nsfw-link" target="_blank">
+                <div class="cell-bg" style="background-image: url('https://u.cubeupload.com/DVaBoi/DVaBoiJune20th2023Th.png');"></div>
+                <span class="cell-index">See EVERYTHING BE WARNED!</span>
+                <div><span class="cell-title">Only Fans</span><span class="cell-desc">Adult content. [NSFW]</span></div>
+            </a>
+            <a href="https://www.pornhub.com/model/dvaboi" class="data-cell nsfw-link" target="_blank">
+                <div class="cell-bg" style="background-image: url('https://u.cubeupload.com/DVaBoi/DVaBoiJune20th2023Th.png');"></div>
+                <span class="cell-index">See EVERYTHING BE WARNED!</span>
+                <div><span class="cell-title">PornHub</span><span class="cell-desc">Adult content. [NSFW]</span></div>
+            </a>
+            <a href="https://www.redgifs.com/users/dvaboi" class="data-cell nsfw-link" target="_blank">
+                <div class="cell-bg" style="background-image: url('https://u.cubeupload.com/DVaBoi/DVaBoiJune20th2023Th.png');"></div>
+                <span class="cell-index">See EVERYTHING BE WARNED!</span>
+                <div><span class="cell-title">Red Gifs</span><span class="cell-desc">Adult content. [NSFW]</span></div>
+            </a>
+            <a href="https://www.reddit.com/user/xdvaboi/" class="data-cell nsfw-link" target="_blank">
+                <div class="cell-bg" style="background-image: url('https://u.cubeupload.com/DVaBoi/DVaBoiJune20th2023Th.png');"></div>
+                <span class="cell-index">See EVERYTHING BE WARNED!</span>
+                <div><span class="cell-title">Reddit</span><span class="cell-desc">Adult content. [NSFW]</span></div>
+            </a>
+            <a href="https://onlyfans.com/dvaboifree" class="data-cell nsfw-link" target="_blank">
+                <div class="cell-bg" style="background-image: url('https://u.cubeupload.com/DVaBoi/DVaBoiJune20th2023Th.png');"></div>
+                <span class="cell-index">See EVERYTHING BE WARNED!</span>
+                <div><span class="cell-title">Only Fans Free</span><span class="cell-desc">Adult content. [NSFW]</span></div>
+            </a>
+        </div>
+    </section>
 
-<!-- AGE VERIFICATION OVERLAY -->
-<div id="age-verification" role="dialog" aria-modal="true" aria-labelledby="age-title" aria-describedby="age-desc">
-  <h2 id="age-title">🔞 Adults Only</h2>
-  <p id="age-desc">This content is for 18 years or older.<br>Are you 18 or older?</p>
-  <div>
-    <button id="age-yes">Yes, take me in</button>
-    <button id="age-no">No, take me back</button>
-  </div>
-</div>
+    <footer>
+        <a href="https://miskomega.com" style="color: var(--text-dim); text-decoration: none; font-size: 0.75rem; letter-spacing: 2px;">MISKOMEGA.COM // DVaBoi - MiskOmega</a>
+        <div style="font-size: 10px; color: var(--border-active);">EST. 2026 - MiskOmega</div>
+    </footer>
 
-<script>
-  const adultLinks = document.querySelectorAll('.adult-link');
-  const ageOverlay = document.getElementById('age-verification');
-  const yesBtn = document.getElementById('age-yes');
-  const noBtn = document.getElementById('age-no');
-  let redirectUrl = '';
+    <script>
+        let pendingUrl = "";
 
-  adultLinks.forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      redirectUrl = e.currentTarget.getAttribute('data-adult-url');
-      ageOverlay.style.display = 'flex';
-    });
-  });
+        document.querySelectorAll('.nsfw-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                pendingUrl = this.href;
+                document.getElementById('nsfw-modal').style.display = 'flex';
+            });
+        });
 
-  yesBtn.addEventListener('click', () => {
-    if (redirectUrl) {
-      window.open(redirectUrl, '_blank', 'noopener,noreferrer');
-      ageOverlay.style.display = 'none';
-      redirectUrl = '';
-    }
-  });
+        function closeModal() {
+            document.getElementById('nsfw-modal').style.display = 'none';
+            pendingUrl = "";
+        }
 
-  noBtn.addEventListener('click', () => {
-    ageOverlay.style.display = 'none';
-    redirectUrl = '';
-  });
-</script>
+        function confirmNSFW() {
+            if (pendingUrl) {
+                window.open(pendingUrl, '_blank');
+            }
+            closeModal();
+        }
+    </script>
 </body>
 </html>
